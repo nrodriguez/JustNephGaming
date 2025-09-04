@@ -2,73 +2,59 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>JustNeph Badge Overlay</title>
+<title>JustNeph Badge Overlay (Grid)</title>
 <style>
   :root{
-    /* gradient sampled from your reference */
-    --accent-from: #A00088; /* deep purple */
-    --accent-to:   #D800C0; /* magenta-pink */
-    --size: 120px;          /* set 120 for 512px art, 80 for 128px art, tweak as needed */
-    --gap: 12px;
-    --ring: 6px;            /* ring thickness */
+    --accent-from: #A00088; /* gradient start */
+    --accent-to:   #D800C0; /* gradient end */
+    --size: 100px;          /* badge size (tweak for 512px or 128px art) */
+    --gap: 10px;
+    --ring: 6px;
   }
 
   html,body{ margin:0; background:transparent; }
   .overlay{
     position:fixed; top:20px; right:20px; z-index:9999;
-    display:flex; flex-direction:column; gap:var(--gap);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    display:grid;
+    grid-template-columns: repeat(2, var(--size));
+    grid-auto-rows: var(--size);
+    gap: var(--gap);
   }
 
   .badge{
     position:relative; width:var(--size); height:var(--size);
     border-radius:50%; overflow:visible;
-    /* subtle outer glow */
-    filter: drop-shadow(0 0 10px rgba(216,0,192,0.4)) drop-shadow(0 0 18px rgba(160,0,136,0.25));
+    filter: drop-shadow(0 0 10px rgba(216,0,192,0.4))
+            drop-shadow(0 0 18px rgba(160,0,136,0.25));
   }
 
-  /* gradient ring */
   .badge::before{
     content:""; position:absolute; inset:0; border-radius:50%;
     background: conic-gradient(from 0deg, var(--accent-from), var(--accent-to));
-    /* carve out the center so only the ring shows */
     -webkit-mask:
       radial-gradient(farthest-side, transparent calc(100% - var(--ring)), #000 calc(100% - var(--ring)));
             mask:
       radial-gradient(farthest-side, transparent calc(100% - var(--ring)), #000 calc(100% - var(--ring)));
   }
 
-  /* image container */
   .badge img{
     position:absolute; inset: calc(var(--ring) + 2px);
     width: calc(100% - (var(--ring) + 2px)*2);
     height: calc(100% - (var(--ring) + 2px)*2);
     object-fit: contain; border-radius:50%;
-    /* gentle inner glow to make the symbol pop */
     box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
     background: transparent;
   }
-
-  /* optional: compact 2x3 grid instead of a tall column
-     .overlay { flex-wrap: wrap; width: calc(var(--size)*2 + var(--gap)); }
-  */
 </style>
 </head>
 <body>
   <div class="overlay">
-    <!-- Put your PNGs inside character_badges/512px or 128px and keep these filenames -->
-    <div class="badge"><img src="character_badges/512px/thanos_badge.png"       alt="Thanos"></div>
-    <div class="badge"><img src="character_badges/512px/moonknight_badge.png"   alt="Moon Knight"></div>
-    <div class="badge"><img src="character_badges/512px/kraven_badge.png"       alt="Kraven"></div>
-    <div class="badge"><img src="character_badges/512px/darthmaul_badge.png"    alt="Darth Maul"></div>
-    <div class="badge"><img src="character_badges/512px/greenranger_badge.png"  alt="Green Ranger"></div>
-    <div class="badge"><img src="character_badges/512px/shredder_badge.png"     alt="Shredder"></div>
+    <div class="badge"><img src="character_badges/512px/thanos_badge.png"      alt="Thanos"></div>
+    <div class="badge"><img src="character_badges/512px/moonknight_badge.png"  alt="Moon Knight"></div>
+    <div class="badge"><img src="character_badges/512px/kraven_badge.png"      alt="Kraven"></div>
+    <div class="badge"><img src="character_badges/512px/darthmaul_badge.png"   alt="Darth Maul"></div>
+    <div class="badge"><img src="character_badges/512px/greenranger_badge.png" alt="Green Ranger"></div>
+    <div class="badge"><img src="character_badges/512px/shredder_badge.png"    alt="Shredder"></div>
   </div>
-
-  <!-- QUICK TWEAKS:
-       - Use 128px versions: change src paths to /128px/ and set --size: 80px;
-       - Move overlay: adjust .overlay { top/right } values;
-       - Thicker ring: increase --ring;
-  -->
 </body>
 </html>
