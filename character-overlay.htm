@@ -1,0 +1,67 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+  }
+
+  .card {
+    background: rgba(20,20,30,0.85);
+    border: 2px solid #ffcc00;
+    border-radius: 12px;
+    padding: 10px;
+    width: 140px;
+    text-align: center;
+    box-shadow: 0 0 10px #000;
+    transition: transform 0.25s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.08);
+  }
+
+  .card img {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #fff;
+  }
+
+  .name {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 1px 1px 4px #000;
+  }
+</style>
+
+<div class="overlay">
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/en/7/7b/Thanos_Infinity_4.png">
+    <div class="name">Thanos</div>
+  </div>
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/en/7/7e/Moon_Knight.png">
+    <div class="name">Moon Knight</div>
+  </div>
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/Kraven_the_Hunter_%28comic_version%29.png">
+    <div class="name">Kraven</div>
+  </div>
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/Darth_Maul.png">
+    <div class="name">Darth Maul</div>
+  </div>
+</div>
