@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>JustNeph Badge Overlay (Grid)</title>
+<title>JustNeph Badge Overlay (Compact Grid)</title>
 <style>
   :root{
     --accent-from: #A00088; /* gradient start */
     --accent-to:   #D800C0; /* gradient end */
-    --size: 100px;          /* badge size (tweak for 512px or 128px art) */
-    --gap: 10px;
+    --size: 80px;           /* scaled-down size while still using 512px icons */
+    --gap: 8px;
     --ring: 6px;
   }
 
@@ -24,8 +24,8 @@
   .badge{
     position:relative; width:var(--size); height:var(--size);
     border-radius:50%; overflow:visible;
-    filter: drop-shadow(0 0 10px rgba(216,0,192,0.4))
-            drop-shadow(0 0 18px rgba(160,0,136,0.25));
+    filter: drop-shadow(0 0 6px rgba(216,0,192,0.4))
+            drop-shadow(0 0 12px rgba(160,0,136,0.25));
   }
 
   .badge::before{
@@ -38,11 +38,11 @@
   }
 
   .badge img{
-    position:absolute; inset: calc(var(--ring) + 2px);
-    width: calc(100% - (var(--ring) + 2px)*2);
-    height: calc(100% - (var(--ring) + 2px)*2);
+    position:absolute; inset: calc(var(--ring) + 1px);
+    width: calc(100% - (var(--ring) + 1px)*2);
+    height: calc(100% - (var(--ring) + 1px)*2);
     object-fit: contain; border-radius:50%;
-    box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
     background: transparent;
   }
 </style>
